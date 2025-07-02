@@ -11,7 +11,7 @@
 
 
 
-<a href=''><img src='https://img.shields.io/badge/Technique-Report-red'></a>
+<a href='https://arxiv.org/abs/2507.01012'><img src='https://img.shields.io/badge/Technique-Report-red'></a>
 <a href='https://kongzhecn.github.io/projects/dam-vsr/'><img src='https://img.shields.io/badge/Project-Page-green'></a>
 <a href='https://huggingface.co/Fucius/DAM-VSR'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a>
 <a href=https://github.com/kongzhecn/DAM-VSR><img src='https://img.shields.io/badge/Github-bb8a2e?logo=github'></a>
@@ -27,7 +27,7 @@
 
 ## :label: Change Log 
 
-- [2025/7/2] 🔥 We release the [source code](https://github.com/kongzhecn/DAM-VSR) and [technical report]() of DAM-VSR.
+- [2025/7/2] 🔥 We release the [source code](https://github.com/kongzhecn/DAM-VSR) and [technical report](https://arxiv.org/abs/2507.01012) of DAM-VSR.
 
 
 ## 🔆 Method Overview
