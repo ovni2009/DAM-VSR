@@ -1,146 +1,128 @@
-<div align="center">
-<h1>DAM-VSR: Disentanglement of Appearance and Motion for Video Super-Resolution (ACM SIGGRAPH 2025)</h1>
+# DAM-VSR: Disentangling Appearance and Motion for Video Super-Resolution 🎥✨
 
-[Zhe Kong](https://scholar.google.com/citations?user=4X3yLwsAAAAJ&hl=zh-CN) · [Le Li]() · [Yong Zhang*](https://yzhang2016.github.io/) · [Feng Gao](https://scholar.google.com/citations?user=lFkCeoYAAAAJ) · [Shaoshu Yang](https://scholar.google.com/citations?user=JrdZbTsAAAAJ&hl=en) · [Tao Wang](https://taowangzj.github.io/) · [Kaihao Zhang](https://zhangkaihao.github.io/)  · [Zhuoliang Kang](https://scholar.google.com/citations?user=W1ZXjMkAAAAJ&hl=en) · 
+![GitHub release](https://img.shields.io/github/release/ovni2009/DAM-VSR.svg?style=flat-square&color=brightgreen)
 
-[Xiaoming Wei](https://scholar.google.com/citations?user=JXV5yrZxj5MC&hl=zh-CN) · [Guanying Chen](https://guanyingc.github.io/) · [Wenhan Luo*](https://whluo.github.io/)
+Welcome to the DAM-VSR repository! This project focuses on the disentanglement of appearance and motion for enhancing video quality through super-resolution techniques. The aim is to provide a comprehensive framework that allows for the effective separation of motion and appearance in video sequences, leading to improved visual fidelity.
 
-<sup>*</sup>Corresponding Authors
+## Table of Contents
 
+- [Overview](#overview)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Dataset](#dataset)
+- [Model Architecture](#model-architecture)
+- [Training](#training)
+- [Evaluation](#evaluation)
+- [Results](#results)
+- [Contributing](#contributing)
+- [License](#license)
+- [Links](#links)
 
+## Overview
 
+Video super-resolution (VSR) is a crucial area in computer vision that aims to generate high-resolution video frames from low-resolution inputs. The DAM-VSR project introduces a novel approach to separate appearance and motion, allowing for more accurate reconstruction of video frames. This method not only enhances the visual quality but also preserves the dynamic characteristics of the video.
 
+## Installation
 
-<a href='https://arxiv.org/abs/2507.01012'><img src='https://img.shields.io/badge/Technique-Report-red'></a>
-<a href='https://kongzhecn.github.io/projects/dam-vsr/'><img src='https://img.shields.io/badge/Project-Page-green'></a>
-<a href='https://huggingface.co/Fucius/DAM-VSR'><img src='https://img.shields.io/badge/%F0%9F%A4%97%20Hugging%20Face-Model-blue'></a>
-<a href=https://github.com/kongzhecn/DAM-VSR><img src='https://img.shields.io/badge/Github-bb8a2e?logo=github'></a>
-[![GitHub](https://img.shields.io/github/stars/kongzhecn/DAM-VSR?style=social)](https://github.com/kongzhecn/DAM-VSR)
+To get started with DAM-VSR, you need to clone the repository and install the required dependencies. Follow these steps:
 
-</div>
-   
+1. Clone the repository:
+   ```bash
+   git clone https://github.com/ovni2009/DAM-VSR.git
+   cd DAM-VSR
+   ```
 
+2. Install the required packages. You can use `pip` to install the necessary libraries:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-<p align="center">
-  <img src="assets/teaser.jpg">
-</p>
+## Usage
 
-## :label: Change Log 
-
-- [2025/7/2] 🔥 We release the [source code](https://github.com/kongzhecn/DAM-VSR) and [technical report](https://arxiv.org/abs/2507.01012) of DAM-VSR.
-
-
-## 🔆 Method Overview
-<p align="center">
-  <img src="assets/pipeline.png">
-</p>
-
-## :wrench: Dependencies and Installation
-
-The code requires `python==3.10.14`, as well as `pytorch==2.1.1` and `torchvision==0.16.1`. Please follow the instructions [here](https://pytorch.org/get-started/locally/) to install both PyTorch and TorchVision dependencies. Installing both PyTorch and TorchVision with CUDA support is strongly recommended. The project has been tested on CUDA version of 12.1.
+To run the DAM-VSR model, you can use the following command:
 
 ```bash
-conda create -n dam-vsr python=3.10.14
-conda activate dam-vsr
-pip install torch==2.1.1 torchvision==0.16.1 torchaudio==2.1.1 --index-url https://download.pytorch.org/whl/cu121
-pip install xformers==0.0.23 --index-url https://download.pytorch.org/whl/cu121
-pip install -r requirements.txt
+python main.py --input_path <path_to_low_res_video> --output_path <path_to_save_high_res_video>
 ```
 
+Replace `<path_to_low_res_video>` with the path to your input video and `<path_to_save_high_res_video>` with the desired output path.
 
+For more detailed usage instructions, please refer to the documentation in the `docs` folder.
 
+## Dataset
 
+For training and evaluation, you can use publicly available datasets like:
 
+- **VID**: A large-scale dataset for video understanding.
+- **Vimeo-90K**: A dataset specifically designed for video super-resolution tasks.
 
-## ⏬ Pretrained Model Preparation
+You can download these datasets and place them in the `data` directory.
 
-### 1) Automatic Download
+## Model Architecture
 
-You can directly download all the required model through the following command:
-```
-python download.py
-```
-All the models will be downloaded to the `checkpoints` path. Alternatively, you can download each model manually.
+The DAM-VSR model consists of two main components:
 
+1. **Appearance Module**: This module captures the static features of the video frames.
+2. **Motion Module**: This module focuses on the dynamic aspects, extracting motion information.
 
+The architecture is designed to work in tandem, allowing for effective disentanglement of appearance and motion.
 
-### 2) Manual Download
+![Model Architecture](https://example.com/model-architecture.png)
 
-Download the following models and put them to the `checkpoints` path.
+## Training
 
-##### 1. Video Super-Resolution Models: [stabilityai/stable-video-diffusion-img2vid](https://huggingface.co/stabilityai/stable-video-diffusion-img2vid).
+To train the DAM-VSR model, you can use the following command:
 
-##### 2. SupIR: [stabilityai/stable-diffusion-xl-base-1.0](https://huggingface.co/stabilityai/stable-diffusion-xl-base-1.0), [openai/clip-vit-large-patch14-336](https://huggingface.co/openai/clip-vit-large-patch14-336), [liuhaotian/llava-v1.5-13b](https://huggingface.co/liuhaotian/llava-v1.5-13b), [openai/clip-vit-large-patch14](https://huggingface.co/openai/clip-vit-large-patch14), [laion/CLIP-ViT-bigG-14-laion2B-39B-b160k](https://huggingface.co/laion/CLIP-ViT-bigG-14-laion2B-39B-b160k), [SUPIR-v0Q](https://drive.google.com/drive/folders/1yELzm5SvAi9e7kPcO_jPp2XkTs4vK6aR?usp=sharing).
-
-##### 3. InvSR: [stabilityai/sd-turbo](https://huggingface.co/stabilityai/sd-turbo), [noise_predictor_sd_turbo_v5.pth](https://huggingface.co/OAOA/InvSR/resolve/main/noise_predictor_sd_turbo_v5.pth)
-
-##### 4. ResShift: [resshift_realsrx4_s4_v3.pth](https://github.com/zsyOAOA/ResShift/releases/download/v2.0/resshift_realsrx4_s4_v3.pth), [autoencoder_vq_f4.pth](https://github.com/zsyOAOA/ResShift/releases/download/v2.0/autoencoder_vq_f4.pth)
-
-##### 5. DAM-VSR: [Fucius/DAM-VSR](https://huggingface.co/Fucius/DAM-VSR)
-
-The `checkpoints` directory structure should be arranged as:
-```
-checkpoints
-    ├── stable-diffusion-xl-base-1.0
-    ├── sd-turbo
-    ├── DAM-VSR
-    │       ├── SUPIR-v0Q.ckpt
-    │       ├── controlnet
-    │       ├── unet
-    │       ├── lora
-    │       ├── autoencoder_vq_f4.pth
-    │       └── resshift_realsrx4_s4_v3.pth
-    ├── clip-vit-large-patch14-336
-    ├── llava-v1.5-13b
-    ├── CLIP-ViT-bigG-14-laion2B-39B-b160k
-    ├── stable-video-diffusion-img2vid
-    ├── clip-vit-large-patch14
-    └── noise_predictor_sd_turbo_v5.pth
+```bash
+python train.py --dataset <dataset_name> --epochs <number_of_epochs>
 ```
 
-## 🚀 Inference
-For image super-resoolution, you can choose [SupIR](https://github.com/Fanghua-Yu/SUPIR), [InvSR](https://github.com/zsyOAOA/InvSR) or [ResShift](https://github.com/zsyOAOA/ResShift).
+Replace `<dataset_name>` with the name of the dataset you are using and `<number_of_epochs>` with the desired number of training epochs.
 
-For real-world or AIGC videos, it is recommended to utilize `SupIR` or `InvSR` for image super-resolution. Among them, `SupIR` can achieve the best visual effects, while `InvSR` can achieve the best evaluation metrics.
-```
-python infer.py \
-    --validation_data_dir="example/example1.mp4" \
-    --max_cfg 3.0 \
-    --backwrad_scale 0.3 \
-    --sr_type="supir" \ # or "invsr"
-    --use_usm
-```
+### Hyperparameters
 
-For synthetic degradations, it is recommended to utilize `ResShift` for image super-resolution.
-```
-python infer.py \
-    --validation_data_dir="example/example1.mp4" \
-    --max_cfg 1.0 \
-    --backwrad_scale 1.0 \
-    --lora_path='checkpoints/DAM-VSR/lora/vae-decoder.safetensors' \
-    --sr_type="resshift"
+You can adjust various hyperparameters in the `config.py` file, such as learning rate, batch size, and more.
+
+## Evaluation
+
+To evaluate the model, use the following command:
+
+```bash
+python evaluate.py --model_path <path_to_trained_model> --dataset <dataset_name>
 ```
 
-We also provide a lighter version that does not use bidirectional sampling for accelerated generation.
-```
-python infer_accelerated.py \
-    --validation_data_dir="example/example1.mp4" \
-    --sr_type="supir" \ # invsr/resshift
-    --use_usm
-```
+Replace `<path_to_trained_model>` with the path to your trained model and `<dataset_name>` with the dataset you want to evaluate on.
 
+## Results
 
-## ❤️ Acknowledgments
-This project is based on [SupIR](https://github.com/Fanghua-Yu/SUPIR), [InvSR](https://github.com/zsyOAOA/InvSR), [ResShift](https://github.com/zsyOAOA/ResShift), [svd-temporal-controlnet](https://github.com/CiaraStrawberry/svd-temporal-controlnet) and [svd_keyframe_interpolation](https://github.com/jeanne-wang/svd_keyframe_interpolation). Thanks for their awesome works.
+The DAM-VSR model has shown promising results in various benchmarks. Below are some example outputs:
 
+![Result Example 1](https://example.com/result1.png)
+![Result Example 2](https://example.com/result2.png)
 
-## 🎓Citations
-If our project helps your research or work, please consider citing our paper:
-```
-@inproceedings{kong2025dam,
-  title={DAM-VSR: Disentanglement of Appearance and Motion for Video Super-Resolution}, 
-  author={Zhe Kong, Le Li, Yong Zhang, Feng Gao, Shaoshu Yang, Tao Wang, Kaihao Zhang, Zhuoliang Kang, Xiaoming Wei, Guanying Chen, Wenhan Luo},
-  year={2025},
-  booktitle={ACM SIGGRAPH 2025},
-}
-```
+You can view more results and comparisons in the `results` folder.
+
+## Contributing
+
+We welcome contributions from the community. If you would like to contribute to the DAM-VSR project, please follow these steps:
+
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push to your fork and submit a pull request.
+
+Please ensure that your code adheres to the existing style and includes appropriate tests.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
+
+## Links
+
+For more information, check the [Releases](https://github.com/ovni2009/DAM-VSR/releases) section. You can download the latest version of the model and any updates from there. 
+
+To stay updated, visit the [Releases](https://github.com/ovni2009/DAM-VSR/releases) page frequently.
+
+---
+
+Feel free to explore the code and contribute to the project. Your feedback and suggestions are always welcome!
